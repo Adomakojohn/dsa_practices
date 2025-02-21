@@ -3,7 +3,6 @@
 //if its empty we set the node as the head and tail
 //if its not empty we set our new node as the new tail and let the previous tail point to the new tail
 
-
 package Linked_lists;
 
 class node {
@@ -16,30 +15,47 @@ class node {
     }
 }
 
-
-class singly_linked_list{
+class singly_linked_list {
     node head;
     node tail;
 
-   void add(int value){
-         node new_node = new node(value);
-         if (head ==null) {
+    void add(int value) {
+        node new_node = new node(value);
+        if (head == null) {
             head = new_node;
             tail = new_node;
-         }else{
-            tail.next= new_node;
-            tail= new_node;
-         }
-   }
-
-    void printList(){
-         node current = head;
-         while (current != null) {
-              System.out.print(current.data +"--");
-              current = current.next;
-         }
-       System.out.println(head.next);
+        } else {
+            tail.next = new_node;
+            tail = new_node;
+        }
     }
+
+    void printList() {
+        node current = head;
+        while (current != null) {
+            System.out.print(current.data + "--");
+            current = current.next;
+        }
+        System.out.println(tail.next);
+    }
+
+    // SEARCHING IN SiNGLY LINKED_LISTS
+    void searchList(int value) {
+        node current = head;
+
+        while (current != null) {
+            if (current.data == value) {
+                System.out.println("Value found: " + value + " is equal to " + current.data);
+                return; 
+            }
+            System.out.println("Value not found: " + value + " is not equal to " + current.data);
+            current = current.next;
+        }
+
+        //  value was not found in the list
+        System.out.println("Value " + value + " not found in the list.");
+    }
+
 }
 
 public class insertion {
@@ -53,6 +69,8 @@ public class insertion {
         list.add(20);
 
         list.printList();
+
+        list.searchList(36);
     }
-    
+
 }
